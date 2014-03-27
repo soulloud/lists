@@ -15,9 +15,9 @@ public class TestList {
         list.add("foo");
         list.add("bar");
         list.add("baz");
-		assertEquals(list.get(0), "foo");
-		assertEquals(list.get(1), "bar");
-		assertEquals(list.get(2), "baz");
+		assertEquals("foo", list.get(0));
+		assertEquals("bar", list.get(1));
+		assertEquals("baz", list.get(2));
 	}
 	
 	/**
@@ -29,11 +29,11 @@ public class TestList {
         list.add("foo");
         list.add("bar");
         list.add("baz");
-		assertEquals(list.size(), 3);
-		assertEquals(list.get(0), "foo");
+		assertEquals(3, list.size());
+		assertEquals("foo", list.get(0));
 		list.add("foobar");
-		assertEquals(list.size(), 4);
-		assertEquals(list.get(3), "foobar");
+		assertEquals(4, list.size());
+		assertEquals("foobar", list.get(3));
 	}
 
     /**
@@ -48,8 +48,8 @@ public class TestList {
         for (int i = 0; i < 100; i++) {
             list.add("foo" + i);
         }
-        assertEquals(list.size(), 103);
-        assertEquals(list.get(102), "foo99");
+        assertEquals(103, list.size());
+        assertEquals("foo99", list.get(102));
     }
 
 	/**
@@ -61,12 +61,12 @@ public class TestList {
         list.add("foo");
         list.add("bar");
         list.add("baz");
-		assertEquals(list.size(), 3);
-		assertEquals(list.get(0), "foo");
+		assertEquals(3, list.size());
+		assertEquals("foo", list.get(0));
 		list.add(1, "foobar");
-		assertEquals(list.size(), 4);
-		assertEquals(list.get(1), "foobar");
-		assertEquals(list.get(3), "baz");
+		assertEquals(4, list.size());
+		assertEquals("foobar", list.get(1));
+		assertEquals("baz", list.get(3));
 	}
 
     /**
