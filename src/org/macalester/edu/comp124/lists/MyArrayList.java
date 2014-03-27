@@ -96,6 +96,6 @@ public class MyArrayList<E> {
 	 */
 	@SuppressWarnings("unchecked")
 	private E[] newArrayOfE(int capacity) {
-		return (E[]) (E[])new Object[capacity];
+		return (E[])new Object[capacity];
 	}
 }
