@@ -11,7 +11,7 @@ public class MyArrayList<E> {
 	/**
 	 * The array elements
 	 */
-	private E elements[];
+	private E[] elements;
 	
 	/**
 	 * The number of elements currently contained in the list.
@@ -47,7 +47,7 @@ public class MyArrayList<E> {
 	 * @return
 	 */
 	public E get(int index) {
-        return null;    // replace this line with the correct code.
+        return elements[index];    // replace this line with the correct code.
 	}
 	
 	/**
@@ -60,6 +60,15 @@ public class MyArrayList<E> {
 	 * @param elem
 	 */
 	public void add(E elem) {
+        if (currentSize == elements.length) {
+            E[] tempArray = newArrayOfE(currentSize+1);
+            for (int i = 0; i < currentSize; i++) {
+                tempArray[i] = elements[i];
+            }
+            elements = tempArray;
+        }
+        elements[currentSize] = elem;
+        currentSize +=1;
 	}
 
 	/**
@@ -74,6 +83,17 @@ public class MyArrayList<E> {
 	 * @param elem
 	 */
 	public void add(int index, E elem) {
+
+        E[] tempArray = newArrayOfE(currentSize+1);
+        for (int i = 0; i < index; i++) {
+            tempArray[i] = elements[i];
+        }
+        tempArray[index] = elem;
+        for (int i = index; i < currentSize; i++) {
+            tempArray[i + 1] = elements[i];
+        }
+        elements = tempArray;
+        currentSize +=1;
 	}
 	
 	/**
@@ -85,6 +105,12 @@ public class MyArrayList<E> {
      * Hint: use newArrayOfE!
 	 */
 	private void expandSize() {
+        E[] tempArray = newArrayOfE(currentSize*2);
+        for (int i = 0; i < currentSize; i++) {
+            tempArray[i] = elements[i];
+        }
+        elements = tempArray;
+        currentSize = currentSize*2;
 	}
 	
 	/**
